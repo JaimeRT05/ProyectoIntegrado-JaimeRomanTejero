@@ -1,0 +1,87 @@
+<div class="login-container">
+  <div class="login-box">
+
+    <!-- Header -->
+    <div class="login-header">
+
+      <!-- Flecha volver al login -->
+      <span 
+        *ngIf="mostrarRegistro" 
+        class="back-btn" 
+        (click)="mostrarRegistro=false">
+        Volver
+      </span>
+
+      <h2 *ngIf="!mostrarRegistro">Login</h2>
+      <h2 *ngIf="mostrarRegistro">Registro</h2>
+      <button class="close-btn" (click)="closeModal()">×</button>
+    </div>
+
+    <!-- Login -->
+    <form *ngIf="!mostrarRegistro" (ngSubmit)="login()">
+      <input type="text" placeholder="Usuario" [(ngModel)]="nombreUsuario" name="loginUsuario" required>
+      <input type="password" placeholder="Contraseña" [(ngModel)]="contrasenaUsuario" name="loginContrasena" required>
+      <p class="error" *ngIf="loginError">{{loginError}}</p>
+      <button type="submit">Entrar</button>
+      <p class="link" (click)="mostrarRegistro=true">¿No tienes cuenta? Regístrate</p>
+    </form>
+
+    <!-- Registro -->
+    <div *ngIf="mostrarRegistro">
+
+      <!-- Selección Ciudadano / Empresa -->
+      <div class="tipo-registro">
+        <button [class.selected]="tipoRegistro==='CIUDADANO'" (click)="seleccionarTipo('CIUDADANO')">Ciudadano</button>
+        <button [class.selected]="tipoRegistro==='EMPRESA'" (click)="seleccionarTipo('EMPRESA')">Empresa</button>
+      </div>
+
+      <!-- Formulario Ciudadano -->
+      <form *ngIf="tipoRegistro==='CIUDADANO'" (ngSubmit)="submitCiudadano()">
+        <input type="text" placeholder="Nombre de Usuario" [(ngModel)]="ciudadano.nombreUsuario" name="usuarioCiudadano" required>
+        <input type="password" placeholder="Contraseña" [(ngModel)]="ciudadano.contrasenaUsuario" name="passCiudadano" required>
+        <input type="password" placeholder="Repetir Contraseña" [(ngModel)]="ciudadano.repetirContrasena" name="repPassCiudadano" required>
+        <input type="text" placeholder="Nombre" [(ngModel)]="ciudadano.nombre" name="nombreCiudadano" required>
+        <input type="text" placeholder="Apellidos" [(ngModel)]="ciudadano.apellidos" name="apellidosCiudadano" required>
+        <input type="date" placeholder="Fecha de nacimiento" [(ngModel)]="ciudadano.fechaNacimiento" name="fechaNacimientoCiudadano" required>
+        <input type="text" placeholder="Calle" [(ngModel)]="ciudadano.calle" name="calleCiudadano" required>
+        <input type="number" placeholder="Número" [(ngModel)]="ciudadano.numero" name="numeroCiudadano" required>
+        <input type="text" placeholder="Localidad" [(ngModel)]="ciudadano.localidad" name="localidadCiudadano" required>
+        <input type="number" placeholder="Código Postal" [(ngModel)]="ciudadano.codigoPostal" name="cpCiudadano" required>
+        <input type="text" placeholder="Teléfono" [(ngModel)]="ciudadano.telefono" name="telefonoCiudadano" required>
+        <input type="email" placeholder="Email" [(ngModel)]="ciudadano.email" name="emailCiudadano" required>
+        <input type="text" placeholder="Profesión" [(ngModel)]="ciudadano.profesion" name="profesionCiudadano" required>
+
+        <div class="file-upload">
+          <label class="custom-file-label">
+            Seleccionar Currículum
+            <input type="file" (change)="handleFileInput($event)" accept=".pdf" hidden>
+          </label>
+          <span class="file-name" *ngIf="curriculumFile">{{curriculumFile.name}}</span>
+        </div>
+
+        <button type="submit">Registrar Ciudadano</button>
+      </form>
+
+      <!-- Formulario Empresa -->
+      <form *ngIf="tipoRegistro==='EMPRESA'" (ngSubmit)="submitEmpresa()">
+        <input type="text" placeholder="Nombre de Usuario" [(ngModel)]="empresa.nombreUsuario" name="usuarioEmpresa" required>
+        <input type="password" placeholder="Contraseña" [(ngModel)]="empresa.contrasenaUsuario" name="passEmpresa" required>
+        <input type="password" placeholder="Repetir Contraseña" [(ngModel)]="empresa.repetirContrasena" name="repPassEmpresa" required>
+        <input type="text" placeholder="Nombre Completo" [(ngModel)]="empresa.nombreCompleto" name="nombreCompletoEmpresa" required>
+        <input type="text" placeholder="CIF" [(ngModel)]="empresa.cif" name="cifEmpresa" required>
+        <input type="text" placeholder="Actividad" [(ngModel)]="empresa.actividadEmpresa" name="actividadEmpresa" required>
+        <input type="text" placeholder="Calle" [(ngModel)]="empresa.calle" name="calleEmpresa" required>
+        <input type="number" placeholder="Número" [(ngModel)]="empresa.numero" name="numeroEmpresa" required>
+        <input type="text" placeholder="Polígono" [(ngModel)]="empresa.poligono" name="poligonoEmpresa">
+        <input type="text" placeholder="Localidad" [(ngModel)]="empresa.localidad" name="localidadEmpresa" required>
+        <input type="number" placeholder="Código Postal" [(ngModel)]="empresa.codigoPostal" name="cpEmpresa" required>
+        <input type="text" placeholder="Teléfono" [(ngModel)]="empresa.telefono" name="telefonoEmpresa" required>
+        <input type="email" placeholder="Email" [(ngModel)]="empresa.email" name="emailEmpresa" required>
+        <input type="text" placeholder="Dirección Web" [(ngModel)]="empresa.direccionWeb" name="webEmpresa">
+
+        <button type="submit">Registrar Empresa</button>
+      </form>
+
+    </div>
+  </div>
+</div>

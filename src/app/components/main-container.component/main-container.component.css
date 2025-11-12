@@ -1,0 +1,7 @@
+/* Contenedor principal */
+.main-content {
+  padding: 20px;
+  min-height: calc(100vh - 100px); /* Ajusta según altura de la cabecera */
+  box-sizing: border-box;
+  background-color: #f9f9f9; /* fondo suave */
+}

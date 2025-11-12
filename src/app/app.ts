@@ -1,11 +1,16 @@
-import { Component, signal } from '@angular/core';
+
+import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { MainContainerComponent } from './components/main-container.component/main-container.component';
+import { RouterModule } from '@angular/router';
+
 
 @Component({
   selector: 'app-root',
+  standalone: true,
+  imports: [CommonModule, FontAwesomeModule, RouterModule, MainContainerComponent],
   templateUrl: './app.html',
-  standalone: false,
-  styleUrl: './app.css'
+  styleUrls: ['./app.css']
 })
-export class App {
-  protected readonly title = signal('FrontEndPI');
-}
+export class AppComponent {}

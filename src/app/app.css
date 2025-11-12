@@ -1,0 +1,98 @@
+/* === CABECERA PRINCIPAL (más alta) === */
+.main-header {
+  background-color: #fff;
+  color: #00509A;
+  padding: 25px 40px; /* ⬆️ más altura */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+/* === LOGO IZQUIERDA === */
+.logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex: 1;
+}
+
+.logo {
+  max-height: 70px; /* ⬆️ aumenta tamaño del logo */
+  width: auto;
+}
+
+/* === TÍTULO CENTRADO === */
+.main-header h1 {
+  margin: 0;
+  font-size: 2em; /* ⬆️ texto más grande */
+  font-weight: 600;
+  text-align: center;
+  flex: 2;
+  color: #00509A;
+}
+
+/* === BOTÓN DERECHA === */
+.login-btn {
+  background-color: #00509A;
+  border-radius: 33px;
+  padding: 14px 30px; /* ⬆️ botón más alto */
+  border: none;
+  color: #fff;
+  font-size: 1.1em;
+  font-weight: 500;
+  cursor: pointer;
+  font-family: 'Roboto', sans-serif;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+
+.login-btn:hover {
+  background-color: #357abd;
+  transform: translateY(-2px);
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+  .main-header {
+    padding: 20px 25px;
+  }
+
+  .logo {
+    max-height: 55px;
+  }
+
+  .main-header h1 {
+    font-size: 1.5em;
+  }
+
+  .login-btn {
+    padding: 10px 18px;
+    font-size: 0.95em;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-header {
+    padding: 15px 20px;
+  }
+
+  .logo {
+    max-height: 45px;
+  }
+
+  .main-header h1 {
+    font-size: 1.2em;
+  }
+
+  .login-btn {
+    padding: 8px 14px;
+    font-size: 0.9em;
+  }
+}

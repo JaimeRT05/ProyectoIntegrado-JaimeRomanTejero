@@ -1,0 +1,23 @@
+<ng-container *ngIf="usuario; else publico">
+  <app-header-ciudadano 
+    *ngIf="usuario.perfil === 'CIUDADANO'" 
+    [usuario]="usuario" 
+    (logout)="cerrarSesion()">
+  </app-header-ciudadano>
+
+  <app-header-empresa 
+    *ngIf="usuario.perfil === 'EMPRESA'" 
+    [usuario]="usuario" 
+    (logout)="cerrarSesion()">
+  </app-header-empresa>
+
+  <app-header-admin 
+    *ngIf="usuario.perfil === 'ADMIN'" 
+    [usuario]="usuario" 
+    (logout)="cerrarSesion()">
+  </app-header-admin>
+</ng-container>
+  
+<ng-template #publico>
+  <app-header-publico></app-header-publico>
+</ng-template>

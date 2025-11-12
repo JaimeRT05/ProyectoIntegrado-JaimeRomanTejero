@@ -1,0 +1,101 @@
+/* Host general del header container */
+:host {
+  display: block;
+  width: 100%;
+}
+
+/* Estilos generales para todos los headers */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #ffffff;
+  padding: 0.5rem 1rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  height: 60px; /* altura fija de cabecera */
+  box-sizing: border-box;
+}
+
+/* Logo */
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  height: 40px; /* tamaño normal */
+  width: auto;
+  object-fit: contain;
+}
+
+/* Navegación de enlaces */
+.nav-links,
+.links {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.nav-links a,
+.links a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover,
+.links a:hover {
+  color: #007bff;
+}
+
+/* Botones de login, logout, perfil */
+.login-btn,
+.btn {
+  padding: 0.3rem 0.7rem;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.login-btn {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+  color: #fff;
+}
+
+.btn-danger {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+/* Para el contenedor de usuario si lo hay */
+.usuario {
+  margin-right: 0.5rem;
+  font-weight: 500;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    height: auto;
+    padding: 0.5rem;
+  }
+
+  .nav-links,
+  .links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  .auth-buttons {
+    margin-top: 0.5rem;
+  }
+}
