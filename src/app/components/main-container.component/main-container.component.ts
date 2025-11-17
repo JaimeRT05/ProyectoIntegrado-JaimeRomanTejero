@@ -3,13 +3,11 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { Router, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
-import { HeaderContainerComponent } from '../headers/header-container.component/header-container.component';
-import { InicioComponent } from '../inicio.component/inicio.component';
 
 @Component({
   selector: 'app-main-container',
   standalone: true,
-  imports: [CommonModule, RouterModule, HeaderContainerComponent],
+  imports: [CommonModule, RouterModule],
   templateUrl: './main-container.component.html',
   styleUrls: ['./main-container.component.css']
 })
