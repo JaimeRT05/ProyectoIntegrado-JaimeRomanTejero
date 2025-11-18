@@ -22,7 +22,14 @@ const routes: Routes = [
         path: 'ofertasPublico',
         loadComponent: () =>
           import('./components/headers/header-publico.component/ofertas-publico.component/ofertas-publico.component').then(m => m.OfertasPublicoComponent)
-      }
+      },
+      {
+        path: 'oferta/:id',
+        loadComponent: () =>
+          import('./components/headers/header-publico.component/oferta-detalle.component/oferta-detalle.component').then(m => m.OfertaDetalleComponent)
+}
+
+
     ]
   },
   { path: '**', redirectTo: '' }

@@ -1,1 +1,32 @@
-<p>ofertas-publico.component works!</p>
+<div class="ofertas-publico">
+
+  <h2>Ofertas de empleo</h2>
+
+  <!-- FILTROS -->
+  <div class="filtros">
+    <select [(ngModel)]="tipo" (change)="buscar()">
+      <option value="">Todos los tipos</option>
+      <option value="CONTRATO">Contrato</option>
+      <option value="DUAL">Formación Dual</option>
+      <option value="PRACTICAS">Prácticas</option>
+    </select>
+
+    <input type="text"
+           placeholder="Buscar por palabra clave..."
+           [(ngModel)]="palabraClave"
+           (input)="buscar()">
+  </div>
+
+  <!-- LISTADO -->
+  <div *ngIf="cargando">Cargando ofertas...</div>
+
+  <ul class="lista-ofertas" *ngIf="!cargando">
+    <li *ngFor="let o of ofertas" class="oferta-item">
+      <a [routerLink]="['/oferta', o.idOferta]">{{ o.titulo }}</a> 
+    </li>
+  </ul>
+
+  <div *ngIf="!cargando && ofertas.length === 0" class="no-resultados">
+    No se encontraron ofertas.
+  </div>
+</div>
