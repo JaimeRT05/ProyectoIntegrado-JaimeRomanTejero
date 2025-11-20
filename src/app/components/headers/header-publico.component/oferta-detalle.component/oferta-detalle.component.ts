@@ -23,6 +23,10 @@ export class OfertaDetalleComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    //this.route Representa la ruta activa que está cargando este componente.
+    // snapshot es una “instantánea” de la ruta en el momento en que se crea el componente.
+    // si la ruta es /oferta/7, paramMap.get('id') devolverá "7" como string.
+    // Number cambiar el "7" de string a numero 
     const id = Number(this.route.snapshot.paramMap.get('id'));
     this.ofertaService.obtenerDetalle(id).subscribe({
       next: data => {

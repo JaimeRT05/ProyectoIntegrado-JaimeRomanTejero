@@ -1,14 +1,13 @@
 <div class="empresas-publico">
-  <h2>Empresas</h2>
-
+  
   <div *ngIf="cargando">Cargando empresas...</div>
   <div *ngIf="error">{{ error }}</div>
 
-  <ul *ngIf="!cargando && empresas.length > 0">
+  <ul class="empresas-list" *ngIf="!cargando && empresas.length > 0">
     <li *ngFor="let empresa of empresas" class="empresa-card">
       <h3>{{ empresa.nombreCompleto }}</h3>
       <p>Actividad: {{ empresa.actividadEmpresa }}</p>
-      <p>Localidad: {{ empresa.localidad }} - CP: {{ empresa.codigoPostal }}</p>
+      <p>Localidad: {{ empresa.localidad }} - Código Postal: {{ empresa.codigoPostal }}</p>
       <p>Teléfono: {{ empresa.telefono }} | Email: {{ empresa.email }}</p>
       <a *ngIf="empresa.direccionWeb" href="{{ empresa.direccionWeb }}" target="_blank">Sitio Web</a>
     </li>

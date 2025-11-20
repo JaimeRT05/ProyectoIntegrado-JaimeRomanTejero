@@ -2,19 +2,45 @@
   padding: 20px;
 }
 
-.empresa-card {
-  border: 1px solid #ddd;
-  padding: 15px;
-  margin-bottom: 15px;
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+/* Quita los puntos del listado */
+.empresas-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  /* CENTRAR tarjetas */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
 }
 
+/* Tarjetas */
+.empresa-card {
+  width: 600px;                 /* TODAS mismo tamaño */
+  max-width: 90%;               /* Para que no rompa en móviles */
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+  background: white;
+
+  /* Animación ligera al pasar el mouse (actual look moderno) */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.empresa-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+}
+
+/* Título */
 .empresa-card h3 {
   margin: 0 0 10px 0;
   color: #0055a5;
 }
 
+/* Enlace web */
 .empresa-card a {
   color: #0078ff;
   text-decoration: none;
@@ -23,3 +49,4 @@
 .empresa-card a:hover {
   text-decoration: underline;
 }
+

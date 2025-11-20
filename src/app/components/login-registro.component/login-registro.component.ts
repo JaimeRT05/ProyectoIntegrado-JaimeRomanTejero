@@ -5,7 +5,7 @@ import { LoginService } from '../../services/login.service';
 import { RegistroService } from '../../services/registro.service';
 import { AuthService } from '../../services/auth.service';
 import { UsuarioService } from '../../services/usuario.service';
-import {Usuario} from '../../models/usuario.models'
+import {Usuario} from '../../models/usuario.model'
 
 @Component({
   selector: 'app-login-registro',
