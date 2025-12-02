@@ -6,6 +6,7 @@ import { RegistroService } from '../../services/registro.service';
 import { AuthService } from '../../services/auth.service';
 import { UsuarioService } from '../../services/usuario.service';
 import {Usuario} from '../../models/usuario.model'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login-registro',
@@ -66,8 +67,9 @@ export class LoginRegistroComponent {
   constructor(
   private loginService: LoginService,
   private registroService: RegistroService,
-  private authService: AuthService, // ✅ añade el AuthService aquíç
-  private usuarioService: UsuarioService
+  private authService: AuthService, 
+  private usuarioService: UsuarioService,
+  private router: Router 
 ) {}
 
 
@@ -88,16 +90,32 @@ login() {
       // Guardar token en localStorage usando AuthService
       this.authService.login(res.token);
 
-      // Guardar usuario en el servicio para notificar al HeaderContainer
-    const usuario: Usuario = { nombreUsuario: res.nombreUsuario, perfil: res.perfil as 'CIUDADANO' | 'EMPRESA' | 'ADMIN' }; 
-    this.usuarioService.setUsuario(usuario);
+      // Guardar usuario en el servicio
+      const usuario: Usuario = { 
+        nombreUsuario: res.nombreUsuario, 
+        perfil: res.perfil as 'CIUDADANO' | 'EMPRESA' | 'ADMIN' 
+      }; 
+      this.usuarioService.setUsuario(usuario);
 
+      // Cerrar modal
       this.closeModal();  
+
+      // Redirigir según perfil
+      if (usuario.perfil === 'CIUDADANO') {
+        this.router.navigateByUrl('/ciudadano/ofertas'); // navega correctamente
+      } else if (usuario.perfil === 'EMPRESA') {
+        this.router.navigateByUrl('/empresa/ofertas');
+      } else {
+        this.router.navigateByUrl('/');
+      }
+
+
       alert('Login correcto');
     },
     error: () => this.loginError = 'Usuario o contraseña incorrectos'
   });
 }
+
 
   // Seleccionar tipo de registro
   seleccionarTipo(tipo: 'CIUDADANO' | 'EMPRESA') {
@@ -154,7 +172,7 @@ login() {
     Object.entries(this.empresa).forEach(([key, value]) => {
       if (key !== 'repetirContrasena') formData.append(key, value as any);
     });
-    formData.append('perfil', 'EMPRESA'); // Perfil automático
+    formData.append('perfil', 'EMPRESA'); 
 
     this.registroService.crearEmpresa(formData).subscribe({
       next: res => {

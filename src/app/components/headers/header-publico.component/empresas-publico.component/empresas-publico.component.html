@@ -1,17 +1,25 @@
 <div class="empresas-publico">
-  
+
+  <div class="filtros">
+    <input type="text" placeholder="Buscar por nombre..." [(ngModel)]="filtroNombre" (input)="aplicarFiltro()">
+    <input type="text" placeholder="Buscar por actividad..." [(ngModel)]="filtroActividad" (input)="aplicarFiltro()">
+  </div>
+
   <div *ngIf="cargando">Cargando empresas...</div>
   <div *ngIf="error">{{ error }}</div>
 
-  <ul class="empresas-list" *ngIf="!cargando && empresas.length > 0">
-    <li *ngFor="let empresa of empresas" class="empresa-card">
+  <ul class="empresas-list" *ngIf="!cargando && empresasFiltradas.length > 0">
+    <li *ngFor="let empresa of empresasFiltradas" class="empresa-card">
       <h3>{{ empresa.nombreCompleto }}</h3>
-      <p>Actividad: {{ empresa.actividadEmpresa }}</p>
-      <p>Localidad: {{ empresa.localidad }} - Código Postal: {{ empresa.codigoPostal }}</p>
-      <p>Teléfono: {{ empresa.telefono }} | Email: {{ empresa.email }}</p>
-      <a *ngIf="empresa.direccionWeb" href="{{ empresa.direccionWeb }}" target="_blank">Sitio Web</a>
+      <p><b>Actividad:</b> {{ empresa.actividadEmpresa }}</p>
+      <p><b>Localidad:</b> {{ empresa.localidad }} - <b>Código Postal:</b> {{ empresa.codigoPostal }}</p>
+      <p><b>Teléfono:</b> {{ empresa.telefono }}</p>
+      <p><b>Email:</b> {{ empresa.email }}</p>
+      <p><b>Actividad Empresarial:</b> {{ empresa.actividadEmpresa }}</p>
+      <a *ngIf="empresa.direccionWeb" href="{{ empresa.direccionWeb }}" target="_blank"><b>Sitio Web</b></a>
     </li>
   </ul>
 
-  <div *ngIf="!cargando && empresas.length === 0">No hay empresas disponibles.</div>
+  <div *ngIf="!cargando && empresasFiltradas.length === 0">No se encontraron empresas.</div>
+
 </div>

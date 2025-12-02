@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { MainContainerComponent } from './components/main-container.component/main-container.component';
-import { InicioComponent } from './components/inicio.component/inicio.component';
 
 const routes: Routes = [
   {
     path: '',
     component: MainContainerComponent,
     children: [
+      // Rutas públicas
       {
         path: '',
         loadComponent: () =>
@@ -27,12 +27,33 @@ const routes: Routes = [
         path: 'oferta/:id',
         loadComponent: () =>
           import('./components/headers/header-publico.component/oferta-detalle.component/oferta-detalle.component').then(m => m.OfertaDetalleComponent)
-}
+      },
 
-
+      // Rutas para ciudadanos
+      {
+        path: 'ciudadano',
+        children: [
+          {
+            path: 'ofertas',
+            loadComponent: () =>
+              import('./components/headers/header-ciudadano.component/oferta-ciudadano.component/oferta-ciudadano.component').then(m => m.OfertaCiudadanoComponent)
+          },
+          {
+            path: 'oferta/:id',
+            loadComponent: () =>
+              import('./components/headers/header-ciudadano.component/oferta-detalle-ciudadano.component/oferta-detalle-ciudadano.component').then(m => m.OfertaDetalleCiudadanoComponent)
+          },
+          {
+            path: 'perfil',
+            loadComponent: () =>
+              import('./components/headers/header-ciudadano.component/perfil-ciudadano.component/perfil-ciudadano.component').then(m => m.PerfilCiudadanoComponent)
+          },
+          { path: '', redirectTo: 'ofertas', pathMatch: 'full' }
+        ]
+      }
     ]
   },
-  { path: '**', redirectTo: '' }
+  { path: '**', redirectTo: '' } // Ruta fallback
 ];
 
 @NgModule({

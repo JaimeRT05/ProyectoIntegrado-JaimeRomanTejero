@@ -1,1 +1,26 @@
-<p>oferta-detalle-ciudadano.component works!</p>
+<div class="detalle-oferta">
+
+
+  <div *ngIf="cargando">Cargando información...</div>
+
+  <div *ngIf="!cargando && oferta">
+
+    <h2>{{ oferta.titulo }}</h2>
+
+    <p><strong>Empresa:</strong> {{ oferta.nombreEmpresa }}</p>
+    <p><strong>Actividad:</strong> {{ oferta.actividadEmpresa }}</p>
+
+    <p><strong>Descripción:</strong> {{ oferta.descripcion }}</p>
+    <p><strong>Perfil profesional:</strong> {{ oferta.perfilProfesional }}</p>
+    <p><strong>Tipo:</strong> {{ oferta.tipoOferta }}</p>
+    <p><strong>Duración:</strong> {{ oferta.duracion }}</p>
+    <p><strong>Fecha publicación:</strong> {{ oferta.fechaPublicacion }}</p>
+    <p><strong>Estado:</strong> {{ oferta.estado }}</p>
+
+    <div class="botones">
+      <button class="btn-inscribirse" (click)="inscribirse()">Inscribirme</button>
+      <button class="volver-btn" (click)="volver()"> Volver</button>
+    </div>
+
+  </div>
+</div>

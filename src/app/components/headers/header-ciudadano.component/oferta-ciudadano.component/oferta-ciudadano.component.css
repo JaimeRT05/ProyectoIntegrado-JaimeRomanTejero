@@ -1,0 +1,61 @@
+.ofertas-ciudadano {
+  padding: 10px;
+  max-width: 800px;
+  margin: auto;
+}
+
+h2 {
+  font-size: 2em;
+}
+
+.filtros {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 25px;
+}
+
+.filtros select,
+.filtros input {
+  padding: 10px 14px;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+  transition: 0.2s ease;
+  font-size: 1.3em;
+}
+
+.filtros select:focus,
+.filtros input:focus {
+  border-color: #0078ff;
+  box-shadow: 0 0 6px rgba(0,120,255,0.4);
+  outline: none;
+}
+
+.lista-ofertas {
+  list-style: none;
+  padding: 0;
+}
+
+.oferta-item {
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+}
+
+.oferta-item a {
+  font-size: 18px;
+  color: #0055a5;
+  text-decoration: none;
+  font-weight: bold;  
+  font-size: 1.8em;
+}
+
+.oferta-item a:hover {
+  text-decoration: underline;
+}
+
+.no-resultados {
+  margin-top: 20px;
+  color: #777;
+  font-style: italic;
+}

@@ -1,5 +1,6 @@
 <div *ngIf="cargando">Cargando detalles...</div>
-<div *ngIf="!cargando && oferta">
+
+<div *ngIf="!cargando && oferta" class="detalle">
 
   <h1>{{ oferta.titulo }}</h1>
 
@@ -13,6 +14,8 @@
   <p><strong>Fecha publicación:</strong> {{ oferta.fechaPublicacion }}</p>
   <p><strong>Estado:</strong> {{ oferta.estado }}</p>
 
-   <button (click)="volver()" class="volver-btn">← Volver al listado</button>
+  <div class="botones">
+    <button class="volver-btn" (click)="volver()"> Volver</button>
+  </div>
 
 </div>

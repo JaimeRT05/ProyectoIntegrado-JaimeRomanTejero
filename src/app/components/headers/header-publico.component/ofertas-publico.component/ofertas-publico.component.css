@@ -4,10 +4,15 @@
   margin: auto;
 }
 
+h2 {
+  font-size: 2em;
+}
+
 .filtros {
   display: flex;
   gap: 12px;
   margin-bottom: 25px;
+  
 }
 
 .filtros select,
@@ -18,7 +23,7 @@
   background: #fff;
   box-shadow: 0 1px 4px rgba(0,0,0,0.1);
   transition: 0.2s ease;
-  font-size: 16px;
+  font-size: 1.3em;
 }
 
 .filtros select:focus,
@@ -43,6 +48,8 @@
   color: #0055a5;
   text-decoration: none;
   font-weight: bold;
+  font-size: 1.8em;
+  
 }
 
 .oferta-item a:hover {

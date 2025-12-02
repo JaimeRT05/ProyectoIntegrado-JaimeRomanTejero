@@ -1,0 +1,90 @@
+/* Contenedor padre que centra todo en la pantalla */
+.detalle-oferta {
+  max-width: 800px;       
+  margin: 40px auto;      
+  padding: 25px 30px;     
+  background-color: #fff; 
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+/* Contenedor del detalle de la oferta */
+.detalle-oferta > div {
+  width: 100%;
+  max-width: 800px;
+  padding: 25px 30px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  box-sizing: border-box;
+}
+
+/* Títulos y secciones */
+h2 {
+  margin-bottom: 20px;
+  color: #0055a5;
+  font-size: 2em;
+}
+
+p {
+  margin-bottom: 10px;
+  font-size: 1.4em;
+}
+
+/* Contenedor de botones */
+.botones {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap; /* apila botones en móviles */
+}
+
+/* Botón Inscribirme */
+.btn-inscribirse {
+  padding: 10px 18px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
+.btn-inscribirse:hover {
+  background-color: #1e7e34;
+}
+
+/* Botón Volver */
+.volver-btn {
+  padding: 8px 15px;
+  background-color: #0055a5;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
+.volver-btn:hover {
+  background-color: #003f7a;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .detalle-oferta {
+    padding: 20px 10px;
+  }
+  
+  .detalle-oferta > div {
+    padding: 20px;
+  }
+  
+  .botones {
+    flex-direction: column;
+  }
+
+  .btn-inscribirse, .volver-btn {
+    width: 100%;
+  }
+}

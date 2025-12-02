@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { OfertaPublicService, Oferta } from '../../../..//services/oferta-publico.service';
+import { OfertaPublicService } from '../../../../services/oferta-publico.service';
+import { Oferta, OfertaDetalle } from '../../../../models/oferta.model';
 
 @Component({
   selector: 'app-ofertas-publico',

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { OfertaPublicService, OfertaDetalle } from '../../../../services/oferta-publico.service';
+import { OfertaPublicService} from '../../../../services/oferta-publico.service';
+import { OfertaDetalle } from '../../../../models/oferta.model';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 
