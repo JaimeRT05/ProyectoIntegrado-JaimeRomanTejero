@@ -1,9 +1,6 @@
 <ng-container *ngIf="usuario; else publico">
-  <app-header-ciudadano 
-    *ngIf="usuario.perfil === 'CIUDADANO'" 
-    [usuario]="usuario" 
-    (logout)="cerrarSesion()">
-  </app-header-ciudadano>
+
+  <app-header-ciudadano *ngIf="usuario.perfil === 'CIUDADANO'"></app-header-ciudadano>
 
   <app-header-empresa 
     *ngIf="usuario.perfil === 'EMPRESA'" 

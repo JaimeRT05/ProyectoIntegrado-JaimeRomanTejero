@@ -1,10 +1,8 @@
-/* Host general del header container */
 :host {
   display: block;
   width: 100%;
 }
 
-/* Estilos generales para todos los headers */
 header {
   display: flex;
   align-items: center;
@@ -12,23 +10,21 @@ header {
   background-color: #ffffff;
   padding: 0.5rem 1rem;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  height: 60px; /* altura fija de cabecera */
+  height: 60px; 
   box-sizing: border-box;
 }
 
-/* Logo */
 .logo-container {
   display: flex;
   align-items: center;
 }
 
 .logo {
-  height: 40px; /* tamaño normal */
+  height: 40px; 
   width: auto;
   object-fit: contain;
 }
 
-/* Navegación de enlaces */
 .nav-links,
 .links {
   display: flex;
@@ -49,7 +45,6 @@ header {
   color: #007bff;
 }
 
-/* Botones de login, logout, perfil */
 .login-btn,
 .btn {
   padding: 0.3rem 0.7rem;
@@ -74,13 +69,11 @@ header {
   color: #fff;
 }
 
-/* Para el contenedor de usuario si lo hay */
 .usuario {
   margin-right: 0.5rem;
   font-weight: 500;
 }
 
-/* Responsive */
 @media (max-width: 768px) {
   header {
     flex-direction: column;

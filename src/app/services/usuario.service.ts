@@ -11,7 +11,7 @@ export interface Usuario {
   providedIn: 'root'
 })
 export class UsuarioService {
-  private usuarioSubject = new BehaviorSubject<Usuario | null>(null);
+  public usuarioSubject = new BehaviorSubject<Usuario | null>(null);
   usuario$ = this.usuarioSubject.asObservable();
 
   constructor() {
@@ -30,4 +30,9 @@ export class UsuarioService {
     localStorage.removeItem('usuario');
     this.usuarioSubject.next(null);
   } 
+
+  getUsuarioValue(): Usuario | null {
+    return this.usuarioSubject.getValue();
+  }
+
 }

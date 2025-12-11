@@ -1,0 +1,60 @@
+.perfil-ciudadano {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 25px 30px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  box-sizing: border-box;
+}
+
+.perfil-ciudadano h2 {
+  margin-bottom: 20px;
+  color: #0055a5;
+  font-size: 2em;
+}
+
+.perfil-ciudadano p {
+  margin-bottom: 10px;
+  font-size: 1.4em;
+}
+
+.perfil-ciudadano .botones {
+  display: flex;
+  justify-content: flex-end; 
+  flex-wrap: wrap; 
+  gap: 10px; 
+  margin-top: 20px;
+}
+
+.perfil-ciudadano .btn-editar {
+  padding: 10px 18px;
+  background-color: #0055a5;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1.2em;
+}
+
+.perfil-ciudadano .btn-editar:hover {
+  background-color: #003f7a;
+}
+  
+
+@media (max-width: 480px) {
+  .perfil-ciudadano {
+    padding: 20px 10px;
+  }
+
+  .perfil-ciudadano .botones {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .perfil-ciudadano .btn-editar,
+  .perfil-ciudadano .volver-btn {
+    width: 100%;
+  }
+}

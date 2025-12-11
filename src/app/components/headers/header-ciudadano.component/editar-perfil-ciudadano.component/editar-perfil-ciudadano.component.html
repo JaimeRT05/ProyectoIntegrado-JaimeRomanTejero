@@ -1,0 +1,41 @@
+<div class="editar-perfil-container" *ngIf="!cargando && ciudadano">
+  <h2>Editar perfil de {{ ciudadano.nombreUsuario }}</h2>
+
+  <form (ngSubmit)="guardar()">
+
+    <label>Nombre</label>
+    <input type="text" [(ngModel)]="ciudadano.nombre" name="nombre">
+
+    <label>Apellidos</label>
+    <input type="text" [(ngModel)]="ciudadano.apellidos" name="apellidos">
+
+    <label>Calle</label>
+    <input type="text" [(ngModel)]="ciudadano.calle" name="calle">
+
+    <label>Número</label>
+    <input type="number" [(ngModel)]="ciudadano.numero" name="numero">
+
+    <label>Localidad</label>
+    <input type="text" [(ngModel)]="ciudadano.localidad" name="localidad">
+
+    <label>Código Postal</label>
+    <input type="number" [(ngModel)]="ciudadano.codigoPostal" name="codigoPostal">
+
+    <label>Teléfono</label>
+    <input type="text" [(ngModel)]="ciudadano.telefono" name="telefono">
+
+    <label>Profesión</label>
+    <input type="text" [(ngModel)]="ciudadano.profesion" name="profesion">
+
+    <label>Currículum</label>
+    <input type="file">
+
+    <div class="botones">
+      <button type="button" class="btn-volver" (click)="volverPerfil()">Volver al perfil</button>
+      <button type="submit" class="btn-guardar">Guardar</button>
+    </div>
+    
+  </form>
+</div>
+
+<div *ngIf="cargando">Cargando datos...</div>

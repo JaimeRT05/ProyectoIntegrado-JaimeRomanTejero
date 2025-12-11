@@ -1,1 +1,22 @@
-<p>perfil-ciudadano.component works!</p>
+<div class="perfil-ciudadano" *ngIf="!cargando && ciudadano">
+  <h2>Perfil de {{ ciudadano.nombreUsuario }}</h2>
+
+  <p><b>Nombre:</b> {{ ciudadano.nombre }}</p>
+  <p><b>Apellidos:</b> {{ ciudadano.apellidos }}</p>
+  <p><b>Fecha de nacimiento:</b> {{ ciudadano.fechaNacimiento }}</p>
+  <p><b>Calle:</b> {{ ciudadano.calle }}</p>
+  <p><b>Número:</b> {{ ciudadano.numero }}</p>
+  <p><b>Localidad:</b> {{ ciudadano.localidad }}</p>
+  <p><b>Código postal:</b> {{ ciudadano.codigoPostal }}</p>
+  <p><b>Teléfono:</b> {{ ciudadano.telefono }}</p>
+  <p><b>Email:</b> {{ ciudadano.email }}</p>
+  <p><b>Profesión:</b> {{ ciudadano.profesion }}</p>
+  <p *ngIf="ciudadano.curriculumURL"><b>Currículum:</b> {{ ciudadano.curriculumURL }}</p>
+
+   <div class="botones">
+    <button class="btn-editar" (click)="editarPerfil()">Editar Perfil</button>
+   </div>
+
+</div>
+
+<div *ngIf="cargando">Cargando perfil...</div>

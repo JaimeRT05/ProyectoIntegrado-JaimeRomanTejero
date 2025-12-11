@@ -1,10 +1,9 @@
-/* Contenedor principal del header */
 .main-header {
   width: 100%;
   max-width: 100%;
   overflow-x: hidden;
   display: flex;
-  justify-content: space-between; /* separa logo, links y botones */
+  justify-content: space-between; 
   align-items: center;
   padding: 20px 40px;
   background-color: #fff;
@@ -13,10 +12,9 @@
   position: sticky;
   top: 0;
   z-index: 1000;
-  flex-wrap: wrap; /* permite apilar en móviles */
+  flex-wrap: wrap; 
 }
 
-/* Logo */
 .logo-container {
   display: flex;
   align-items: center;
@@ -29,7 +27,6 @@
   object-fit: contain;
 }
 
-/* Navegación principal */
 .nav-links {
   display: flex;
   gap: 30px;
@@ -48,7 +45,6 @@
   color: #0078ff;
 }
 
-/* Contenedor de botones de autenticación */
 .auth-buttons {
   width: 430px;           
   height: 45px; 
@@ -63,15 +59,12 @@
   font-size: 1.2em;
 }
 
-/* Nombre de usuario */
 .auth-buttons .usuario {
-  font-weight: 700;        /* más destacado */
-  font-size: 1.2em;        /* ligeramente más grande */
-  color: #0055a5;          /* color corporativo */
-  margin-right: 10px;       /* separación del botón */
+  font-weight: 700;        
+  font-size: 1.2em;        
+  color: #0055a5;         
+  margin-right: 10px;       
 }
-
-/* Botón general */
 .auth-buttons button {
   padding: 24px 20px;
   border-radius: 6px;
@@ -81,7 +74,6 @@
   transition: all 0.2s ease-in-out;
 }
 
-/* Botón Ver Perfil - secundario */
 .auth-buttons .btn-secondary {
   background-color: #0055a5; 
   font-size: 0.8em; 
@@ -93,10 +85,9 @@
   transform: translateY(-2px);
 }
 
-/* Botón Cerrar Sesión / Login - peligro o primario */
 .auth-buttons .btn-danger,
 .auth-buttons .login-btn {
-  background-color: #0055a5; /* Azul */
+  background-color: #0055a5; 
   font-size: 0.8em; 
   color: #fff;
 }
@@ -107,7 +98,6 @@
   transform: translateY(-2px);
 }
 
-/* ===== MEDIA QUERIES ===== */
 @media (max-width: 1024px) {
   .main-header {
     padding: 18px 30px;

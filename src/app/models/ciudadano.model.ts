@@ -12,9 +12,9 @@ export interface Ciudadano {
   profesion: string;
   curriculumURL?: string;
   validado: boolean;
-  usuario?: {
+ 
     idUsuario: number;
     nombreUsuario: string;
     perfil: string;
-  };
+ 
 }

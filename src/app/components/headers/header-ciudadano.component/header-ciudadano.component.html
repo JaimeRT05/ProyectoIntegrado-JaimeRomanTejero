@@ -1,20 +1,17 @@
 <header class="main-header">
   
-  <!-- LOGO -->
   <div class="logo-container">
     <img src="../../../assets/images/ASEPAVI-LOGO.png" alt="Logo" class="logo">
   </div>
 
-  <!-- NAV -->
   <nav class="nav-links">
-    <a routerLink="/ciudadano/ofertas">Ofertas</a>
-    <a routerLink="/ciudadano/postulaciones">Postulaciones</a>
+    <a (click)="irOfertas()">Ofertas</a>
+    <a>Postulaciones</a>
   </nav>
 
-  <!-- USUARIO + BOTONES -->
   <div class="auth-buttons">
-    <span class="usuario">👤 {{ usuario.nombreUsuario }}</span>
-    <button (click)="verPerfil()" class="btn-secondary">Ver Perfil</button>
+    <span class="usuario">👤 {{ usuario?.nombreUsuario }}</span>
+    <button class="btn-secondary" (click)="irPerfil()">Ver Perfil</button>
     <button class="login-btn" (click)="cerrarSesion()">Cerrar Sesión</button>
   </div>
 

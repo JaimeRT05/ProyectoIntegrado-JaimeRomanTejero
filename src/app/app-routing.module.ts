@@ -48,6 +48,11 @@ const routes: Routes = [
             loadComponent: () =>
               import('./components/headers/header-ciudadano.component/perfil-ciudadano.component/perfil-ciudadano.component').then(m => m.PerfilCiudadanoComponent)
           },
+          {
+            path: 'editarPerfil',
+            loadComponent: () =>
+              import('./components/headers/header-ciudadano.component/editar-perfil-ciudadano.component/editar-perfil-ciudadano.component').then(m => m.EditarPerfilCiudadanoComponent)
+          },
           { path: '', redirectTo: 'ofertas', pathMatch: 'full' }
         ]
       }
