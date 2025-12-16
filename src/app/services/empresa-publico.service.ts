@@ -22,7 +22,7 @@ export interface Empresa {
 })
 export class EmpresaPublicoService {
 
-  private apiUrl = 'http://localhost:8080/api/empresas'; // Ajusta según tu backend
+  private apiUrl = 'http://localhost:8080/api/empresas'; 
 
   constructor(private http: HttpClient) {}
 

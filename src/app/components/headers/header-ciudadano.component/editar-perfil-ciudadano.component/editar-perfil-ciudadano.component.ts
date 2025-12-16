@@ -1,4 +1,3 @@
-// editar-perfil-ciudadano.component.ts
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
@@ -13,6 +12,7 @@ import { Ciudadano } from '../../../../models/ciudadano.model';
   templateUrl: './editar-perfil-ciudadano.component.html',
   styleUrls: ['./editar-perfil-ciudadano.component.css']
 })
+
 export class EditarPerfilCiudadanoComponent implements OnInit {
   ciudadano: Ciudadano | null = null;
   cargando = true;
@@ -67,5 +67,12 @@ export class EditarPerfilCiudadanoComponent implements OnInit {
   this.router.navigate(['/ciudadano/perfil']);
   }
 
+  archivoSeleccionado: string | null = null;
 
+  ArchivoSeleccionado(event: any) {
+    const file = event.target.files[0];
+    if (file) {
+      this.archivoSeleccionado = file.name;
+    }
+  }
 }

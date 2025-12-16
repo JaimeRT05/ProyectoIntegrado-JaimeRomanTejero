@@ -41,6 +41,12 @@
 .perfil-ciudadano .btn-editar:hover {
   background-color: #003f7a;
 }
+
+.cargando {
+  text-align: center;
+  font-size: 18px;
+  margin-top: 40px;
+}
   
 
 @media (max-width: 480px) {
@@ -57,4 +63,6 @@
   .perfil-ciudadano .volver-btn {
     width: 100%;
   }
+
+  
 }

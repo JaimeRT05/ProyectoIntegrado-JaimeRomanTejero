@@ -33,10 +33,6 @@
   box-sizing: border-box;
 }
 
-.editar-perfil-container input[type="file"] {
-  padding: 5px 0;
-}
-
 .editar-perfil-container .botones {
   display: flex;
   justify-content: space-between; 
@@ -56,35 +52,4 @@
 
 .btn-guardar:hover {
   background-color: #003f7a;
-}
-
-.custom-file-upload {
-  display: inline-block;
-  padding: 8px 20px;
-  cursor: pointer;
-  background-color: #28a745;
-  color: white;
-  border-radius: 5px;
-  font-weight: bold;
-  transition: background-color 0.3s;
-}
-
-.custom-file-upload:hover {
-  background-color: #1e7e34;
-}
-
-
-
-@media (max-width: 480px) {
-  .editar-perfil-container {
-    padding: 20px 15px;
-  }
-
-  .editar-perfil-container .botonera {
-    justify-content: center; 
-  }
-
-  .btn-guardar {
-    width: 100%;
-  }
 }

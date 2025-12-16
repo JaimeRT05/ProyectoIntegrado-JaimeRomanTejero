@@ -21,3 +21,17 @@ export interface OfertaDetalle {
   nombreEmpresa: string;
   actividadEmpresa: string;
 }
+
+
+export interface CrearOferta {
+  titulo: string;
+  descripcion: string;
+  tipoOferta: string;
+  perfilProfesional: string;
+  duracion: string;
+  codigoOferta: string;
+  estado: string;
+  idEmpresa?: number; 
+}
+
+

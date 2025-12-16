@@ -1,0 +1,24 @@
+<div *ngIf="!cargando && empresa" class="perfil-empresa">
+
+   <h2>Perfil de {{empresa.nombreCompleto}}</h2>
+
+    <p><strong>Nombre completo:</strong> {{ empresa.nombreCompleto }}</p>
+    <p><strong>CIF:</strong> {{ empresa.cif }}</p>
+    <p><strong>Actividad:</strong> {{ empresa.actividadEmpresa }}</p>
+    <p><strong>Calle:</strong> {{ empresa.calle }}</p>
+    <p><strong>Número:</strong> {{ empresa.numero }}</p>
+    <p><strong>Polígono:</strong> {{ empresa.poligono }}</p>
+    <p><strong>Localidad:</strong> {{ empresa.localidad }}</p>
+    <p><strong>Código Postal:</strong> {{ empresa.codigoPostal }}</p>
+    <p><strong>Teléfono:</strong> {{ empresa.telefono }}</p>
+    <p><strong>Email:</strong> {{ empresa.email }}</p>
+    <p><strong>Dirección Web:</strong> {{ empresa.direccionWeb }}</p>
+
+    <button class="btn-editar" (click)="editar()">Editar perfil</button>
+
+</div>
+
+<div *ngIf="cargando" class="cargando">Cargando perfil...</div>
+
+
+
