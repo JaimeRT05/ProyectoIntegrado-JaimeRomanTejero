@@ -1,0 +1,54 @@
+version: "3.9"
+
+services:
+  # -----------------------------
+  # Base de datos MySQL
+  # -----------------------------
+  mysql-db:
+    image: mysql:8
+    container_name: mysql-db
+    environment:
+      MYSQL_DATABASE: GestionOfertas_BD
+      MYSQL_USER: usuario
+      MYSQL_PASSWORD: usuario
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - "3306:3306"
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-u", "usuario", "-pusuario"]
+      interval: 5s
+      retries: 5
+      timeout: 3s
+
+  # -----------------------------
+  # Backend Spring Boot
+  # -----------------------------
+  spring-backend:
+    build:
+      context: ./Back/BackEndProyectoIntegrado
+    container_name: spring-backend
+    ports:
+      - "8080:8080"
+    depends_on:
+      mysql-db:
+        condition: service_healthy
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql-db:3306/GestionOfertas_BD
+      SPRING_DATASOURCE_USERNAME: usuario
+      SPRING_DATASOURCE_PASSWORD: usuario
+      SPRING_DATASOURCE_DRIVER_CLASS_NAME: com.mysql.cj.jdbc.Driver
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update
+    restart: on-failure
+
+  # -----------------------------
+  # Frontend Angular (ng serve)
+  # -----------------------------
+  angular-frontend:
+    build:
+      context: ./Front
+    container_name: angular-frontend
+    ports:
+      - "4200:4200"   # Acceso Angular en localhost:4200
+    depends_on:
+      - spring-backend
+    command: ["npm", "start"]
