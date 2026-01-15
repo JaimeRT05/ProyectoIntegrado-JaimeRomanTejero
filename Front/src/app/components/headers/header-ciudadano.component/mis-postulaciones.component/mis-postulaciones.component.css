@@ -1,0 +1,25 @@
+.postulaciones-container {
+  max-width: 800px;
+  margin: 2rem auto;
+}
+
+.postulacion-card {
+  background: #f0f4f8;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.postulacion-card button {
+  background: #e74c3c;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.postulacion-card button:hover {
+  background: #c0392b;
+}

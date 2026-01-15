@@ -1,0 +1,67 @@
+<div class="candidatos-container">
+  <h2>Candidatos por oferta</h2>
+
+  <div *ngIf="cargandoOfertas" class="cargando">Cargando ofertas...</div>
+
+  <div *ngIf="!cargandoOfertas && ofertas.length === 0">
+    No hay ofertas con postulantes.
+  </div>
+
+  <ul *ngIf="!cargandoOfertas && ofertas.length > 0" class="lista-ofertas">
+    <li
+      *ngFor="let oferta of ofertas"
+      [class.seleccionada]="ofertaSeleccionada?.idOferta === oferta.idOferta"
+      (click)="seleccionarOferta(oferta)">
+      {{ oferta.titulo }} ({{ oferta.estado }})
+    </li>
+  </ul>
+
+  <div *ngIf="ofertaSeleccionada">
+    <h3>Candidatos de "{{ ofertaSeleccionada.titulo }}"</h3>
+
+    <div *ngIf="cargandoCandidatos" class="cargando">
+      Cargando candidatos...
+    </div>
+
+    <table *ngIf="!cargandoCandidatos && candidatos.length > 0" class="tabla-candidatos">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Curriculum</th>
+          <th>Estado</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let candidato of candidatos">
+          <td>{{ candidato.nombreCiudadano }}</td>
+          <td>
+            <button
+              [disabled]="!candidato.idCurriculum"
+              (click)="descargarCV(candidato.idCurriculum)">
+              Descargar CV
+            </button>
+          </td>
+          <!-- Muestra el estado actual del candidato -->
+          <td>{{ candidato.estado }}</td>
+          <td class="acciones">
+            <button
+              *ngIf="candidato.estado === 'PENDIENTE'"
+              (click)="actualizarEstado(candidato, 'CONTRATADO')">
+              Contratar
+            </button>
+            <button
+              *ngIf="candidato.estado === 'PENDIENTE'"
+              (click)="actualizarEstado(candidato, 'RECHAZADO')">
+              Rechazar
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div *ngIf="!cargandoCandidatos && candidatos.length === 0">
+      No hay candidatos para esta oferta.
+    </div>
+  </div>
+</div>

@@ -1,0 +1,21 @@
+  <div class="postulaciones-container">
+
+    <h2>Mis Postulaciones</h2>
+
+    <p class="error" *ngIf="mensajeError">{{ mensajeError }}</p>
+
+    <div *ngIf="postulaciones.length === 0">
+      <p>No tienes postulaciones registradas.</p>
+    </div>
+
+    <div class="postulacion-card" *ngFor="let p of postulaciones">
+      <h3>{{ p.tituloOferta }}</h3>
+      <p><strong>Empresa:</strong> {{ p.nombreEmpresa }}</p>
+      <p><strong>Tipo de oferta:</strong> {{ p.tipoOferta }}</p>
+      <p><strong>Perfil:</strong> {{ p.perfilProfesional }}</p>
+      <p><strong>Fecha de postulación:</strong> {{ p.fechaPostulacion }}</p>
+
+      <button (click)="eliminarPostulacion(p.idPostulacion)">Cancelar Postulación</button>
+    </div>
+
+  </div>

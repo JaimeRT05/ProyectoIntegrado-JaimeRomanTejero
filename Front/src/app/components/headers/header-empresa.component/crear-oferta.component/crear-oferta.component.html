@@ -1,0 +1,30 @@
+<div class="login-container">
+  <div class="login-box">
+    <div class="login-header">
+      <button class="back-btn" (click)="volver()">Atras</button>
+         <h2>Publicar Oferta</h2>
+    </div>
+
+    <form [formGroup]="ofertaForm" (ngSubmit)="crearOferta()">
+
+      <input type="text" formControlName="titulo" placeholder="Título de la oferta"/>
+
+      <textarea formControlName="descripcion" placeholder="Descripción de la oferta" rows="4" ></textarea>
+
+      <input type="text"formControlName="perfilProfesional" placeholder="Perfil profesional (ej: Informática)"/>
+
+      <select formControlName="tipoOferta" placeholder=" Tipo de Oferta">
+        <option value="" disabled selected hidden>Tipo de oferta</option>
+        <option *ngFor="let tipo of tiposOferta" [value]="tipo.value">{{ tipo.label }}</option>
+      </select>
+
+      <input type="text" formControlName="duracion" placeholder="Duración (opcional)"/>
+
+      <button type="submit">Publicar Oferta</button>
+
+    </form>
+
+    <p *ngIf="mensaje" class="mensaje">{{ mensaje }}</p>
+    <p *ngIf="codigoGenerado" class="codigo">Código generado: <strong>{{ codigoGenerado }}</strong></p>
+  </div>
+</div>

@@ -1,0 +1,101 @@
+.candidatos-container {
+  padding: 25px;
+  font-family: 'Arial', sans-serif;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+}
+
+.lista-ofertas {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 12px;
+  margin-bottom: 25px;
+  flex-wrap: wrap;
+}
+
+.lista-ofertas li {
+  padding: 10px 15px;
+  border: 1px solid #0055a5;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  background-color: white;
+}
+
+.lista-ofertas li:hover {
+  background-color: #e6f7ff;
+}
+
+.lista-ofertas li.seleccionada {
+  background-color: #0055a5;
+  color: white;
+  font-weight: bold;
+  box-shadow: 0 2px 5px rgba(0, 123, 255, 0.4);
+}
+
+.cargando {
+  font-style: italic;
+  color: #6c757d;
+  margin: 10px 0;
+}
+
+.tabla-candidatos {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.tabla-candidatos th,
+.tabla-candidatos td {
+  border: 1px solid #dee2e6;
+  padding: 10px;
+  text-align: left;
+}
+
+.tabla-candidatos th {
+  background-color: #0055a5;
+  color: white;
+  font-weight: 600;
+}
+
+.tabla-candidatos tr:nth-child(even) {
+  background-color: #f1f3f5;
+}
+
+.tabla-candidatos tr:hover {
+  background-color: #d0ebff;
+  transition: background-color 0.2s ease-in-out;
+}
+
+button {
+  padding: 6px 12px;
+  margin-right: 5px;
+  border: none;
+  background-color: #4caf50;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: all 0.2s ease-in-out;
+}
+
+button:hover:not(:disabled) {
+  background-color: #388e3c;
+  transform: translateY(-1px);
+}
+
+button:disabled {
+  background-color: #adb5bd;
+  cursor: not-allowed;
+}
+
+.acciones button {
+  margin-bottom: 6px;
+  background-color: #0055a5;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: all 0.2s ease-in-out;
+}

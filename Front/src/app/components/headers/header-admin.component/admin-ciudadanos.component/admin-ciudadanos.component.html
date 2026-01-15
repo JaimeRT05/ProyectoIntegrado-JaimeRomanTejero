@@ -1,0 +1,46 @@
+<div class="admin-section">
+  <h2>Gestión de Ciudadanos</h2>
+
+  <table class="tabla-ciudadanos">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Apellidos</th>
+        <th>Email</th>
+        <th>Teléfono</th>
+        <th>Localidad</th>
+        <th>Dirección</th>
+        <th>Profesión</th>
+        <th>Currículum</th>
+        <th>Fecha de nacimiento</th>
+        <th>Estado</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let ciudadano of ciudadanos">
+        <td>{{ ciudadano.nombre }}</td>
+        <td>{{ ciudadano.apellidos }}</td>
+        <td>{{ ciudadano.email }}</td>
+        <td>{{ ciudadano.telefono }}</td>
+        <td>{{ ciudadano.localidad }}</td>
+        <td>{{ ciudadano.calle }} {{ ciudadano.numero }}, {{ ciudadano.codigoPostal }}</td>
+        <td>{{ ciudadano.profesion }}</td>
+        <td>
+          <a *ngIf="ciudadano.curriculumURL" [href]="ciudadano.curriculumURL" target="_blank">Ver CV</a>
+          <span *ngIf="!ciudadano.curriculumURL">—</span>
+        </td>
+        <td>{{ ciudadano.fechaNacimiento | date:'shortDate' }}</td>
+        <td>{{ ciudadano.validado ? 'Validado' : 'Pendiente' }}</td>
+        <td class="acciones">
+          <button class="btn-validar" [disabled]="ciudadano.validado" (click)="validarCiudadano(ciudadano)">
+            Validar
+          </button>
+          <button class="btn-eliminar" (click)="eliminarCiudadano(ciudadano)">
+            Eliminar
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,47 @@
+<div class="admin-container">
+  <h2>Gestión de Empresas</h2>
+
+  <p class="mensaje" *ngIf="mensaje">{{ mensaje }}</p>
+
+  <table class="tabla-admin">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>CIF</th>
+        <th>Actividad</th>
+        <th>Email</th>
+        <th>Teléfono</th>
+        <th>Localidad</th>
+        <th>Validado</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let empresa of empresas">
+        <td>{{ empresa.nombreCompleto }}</td>
+        <td>{{ empresa.cif }}</td>
+        <td>{{ empresa.actividadEmpresa }}</td>
+        <td>{{ empresa.email }}</td>
+        <td>{{ empresa.telefono }}</td>
+        <td>{{ empresa.localidad }}</td>
+        <td>
+          <span [class.ok]="empresa.validado" [class.no]="!empresa.validado">
+            {{ empresa.validado ? 'Validado' : 'Pendiente' }}
+          </span>
+        </td>
+        <td class="acciones">
+          <button
+            class="btn-validar" [disabled]="empresa.validado" (click)="validarEmpresa(empresa.idEmpresa)">
+            Validar
+        </button>
+
+          <button 
+            class="btn-eliminar"
+            (click)="eliminarEmpresa(empresa.idEmpresa)">
+            Eliminar
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

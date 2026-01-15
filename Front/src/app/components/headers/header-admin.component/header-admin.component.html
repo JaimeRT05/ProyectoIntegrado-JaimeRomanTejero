@@ -1,0 +1,14 @@
+<header class="main-header">
+  <div class="logo-container">
+    <img src="../../../assets/images/ASEPAVI-LOGO.png" alt="Logo" class="logo">
+  </div>
+  <nav class="nav-links">
+    <a routerLink="/admin/ciudadanos">Ciudadanos</a>
+    <a routerLink="/admin/empresas">Empresas</a>
+    <a routerLink="/admin/ofertas">Ofertas</a>
+  </nav>
+   <div class="auth-buttons">
+    <span class="usuario">👤 {{ usuario.nombreUsuario }}</span>
+    <button class="login-btn" (click)="cerrarSesion()">Cerrar Sesión</button>
+  </div>
+</header>

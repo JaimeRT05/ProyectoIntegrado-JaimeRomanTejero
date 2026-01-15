@@ -1,0 +1,54 @@
+<div class="login-container">
+  <div class="login-box">
+    <div class="login-header">
+      <button class="back-btn" (click)="volver()">←</button>
+      <h2>Gestionar Ofertas</h2>
+    </div>
+
+    <!-- Mensaje de éxito o error -->
+    <p *ngIf="mensaje" class="mensaje">{{ mensaje }}</p>
+
+    <!-- Tabla de ofertas -->
+    <table class="tabla-ofertas">
+      <thead>
+        <tr>
+          <th> Ofertas </th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let oferta of ofertas">
+          <td>{{ oferta.titulo }}</td>
+          <td class="acciones">
+            <button class="btn-finalizar" (click)="finalizarOferta(oferta)">Finalizar</button>
+            <button class="btn-eliminar" (click)="eliminarOferta(oferta)">Eliminar</button>
+            <button class="btn-editar" (click)="editarOferta(oferta)">Modificar</button>
+          </td>
+          
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Formulario de edición -->
+    <div *ngIf="editarOfertaId" class="editar-form-container">
+      <h3>Editar Oferta</h3>
+      <form [formGroup]="editarForm" (ngSubmit)="guardarEdicion()">
+        <input type="text" formControlName="titulo" placeholder="Título de la oferta" />
+        <textarea formControlName="descripcion" placeholder="Descripción" rows="4"></textarea>
+        <input type="text" formControlName="perfilProfesional" placeholder="Perfil profesional" />
+        <select formControlName="tipoOferta">
+          <option value="" disabled selected hidden>Tipo de oferta</option>
+          <option value="FORMACION_DUAL">Formación DUAL</option>
+          <option value="PRACTICAS">Prácticas</option>
+          <option value="TRABAJO">Trabajo</option>
+        </select>
+        <input type="text" formControlName="duracion" placeholder="Duración (opcional)" />
+
+        <div class="botones-edicion">
+          <button type="submit" class="btn-guardar">Guardar</button>
+          <button type="button" class="btn-cancelar" (click)="cancelarEdicion()">Cancelar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

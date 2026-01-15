@@ -1,0 +1,92 @@
+.admin-section {
+  padding: 20px;
+  background-color: #f5f7fb;
+  min-height: calc(100vh - 120px); 
+}
+
+.admin-section h2 {
+  color: #0055a5;
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+}
+
+.tabla-ciudadanos {
+  width: 100%;
+  border-collapse: collapse;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  border-radius: 12px;
+  overflow: hidden;
+  font-size: 1.4em;
+}
+
+.tabla-ciudadanos th,
+.tabla-ciudadanos td {
+  padding: 12px 15px;
+  text-align: left;
+}
+
+.tabla-ciudadanos th {
+  background-color: #0055a5;
+  color: white;
+  font-weight: bold;
+}
+
+.tabla-ciudadanos tr:nth-child(even) {
+  background-color: #eaf0fc;
+}
+
+.acciones button {
+  margin-right: 5px;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: #fff;
+  transition: 0.2s;
+}
+
+.btn-validar {
+  background-color: #4caf50;
+}
+
+.btn-validar:hover:not(:disabled) {
+  background-color: #388e3c;
+}
+
+.btn-validar:disabled {
+  background-color: #a5d6a7;
+  cursor: not-allowed;
+}
+
+.btn-eliminar {
+  background-color: #e53935;
+}
+
+.btn-eliminar:hover {
+  background-color: #b71c1c;
+}
+
+/* Responsivo */
+@media (max-width: 1024px) {
+  .tabla-ciudadanos th, .tabla-ciudadanos td {
+    padding: 10px 12px;
+  }
+
+  .acciones button {
+    font-size: 0.8rem;
+    padding: 5px 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .tabla-ciudadanos {
+    font-size: 0.9rem;
+  }
+
+  .acciones button {
+    font-size: 0.75rem;
+    padding: 4px 8px;
+  }
+}

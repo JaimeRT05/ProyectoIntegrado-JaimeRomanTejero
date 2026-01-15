@@ -1,0 +1,232 @@
+.login-container {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(240, 245, 255, 0.95);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 40px;
+  overflow-y: auto;
+  font-family: 'Roboto', sans-serif;  
+}
+
+.login-box {
+  background: #ffffff;
+  border-radius: 16px;
+  width: 95%;
+  max-width: 900px;
+  padding: 2rem;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.login-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.login-header h2 {
+  flex: 1;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #0055a5;
+}
+
+.back-btn {
+  font-size: 1.6rem;
+  font-weight: bold;
+  background: none;
+  border: none;
+  color: #0055a5;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.back-btn:hover {
+  color: #1a73e8;
+  transform: scale(1.1);
+}
+
+.mensaje {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #1a73e8;
+  margin-bottom: 1rem;
+}
+
+.mensaje.error {
+  color: #e53935;
+}
+
+.tabla-ofertas {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.tabla-ofertas th,
+.tabla-ofertas td {
+  padding: 1rem 1.5rem;
+  text-align: left;
+}
+
+.tabla-ofertas th {
+  background-color: #0055a5;
+  color: white;
+  font-weight: bold;
+}
+
+.tabla-ofertas tr:nth-child(even) {
+  background-color: #f1f5fb;
+}
+
+.acciones button {
+  margin-right: 0.5rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  color: white;
+  font-size: 1rem;
+  transition: 0.2s ease;
+}
+
+.btn-finalizar {
+  background-color: #4caf50;
+}
+
+.btn-finalizar:hover {
+  background-color: #388e3c;
+}
+
+.btn-eliminar {
+  background-color: #e53935;
+}
+
+.btn-eliminar:hover {
+  background-color: #b71c1c;
+}
+
+.btn-editar {
+  background-color: #1e88e5;
+}
+
+.btn-editar:hover {
+  background-color: #1565c0;
+}
+
+/* Formulario de edición */
+.editar-form-container {
+  background-color: #e3f2fd;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.editar-form-container h3 {
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  color: #0055a5;
+}
+
+.editar-form-container input,
+.editar-form-container textarea,
+.editar-form-container select {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1rem;
+  font-size: 1.05rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+.botones-edicion {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.btn-guardar {
+  background-color: #1e88e5;
+  color: white;
+  border-radius: 8px;
+  font-weight: bold;
+  padding: 0.75rem 1.5rem;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn-guardar:hover {
+  background-color: #1565c0;
+}
+
+.btn-cancelar {
+  background-color: #e53935;
+  color: white;
+  border-radius: 8px;
+  font-weight: bold;
+  padding: 0.75rem 1.5rem;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn-cancelar:hover {
+  background-color: #b71c1c;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .login-box {
+    width: 95%;
+    padding: 1.5rem;
+  }
+
+  .login-header h2 {
+    font-size: 1.5rem;
+  }
+
+  .tabla-ofertas th,
+  .tabla-ofertas td {
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+  }
+
+  .acciones button {
+    font-size: 0.9rem;
+    padding: 0.4rem 0.8rem;
+  }
+
+  .editar-form-container input,
+  .editar-form-container textarea,
+  .editar-form-container select,
+  .botones-edicion button {
+    font-size: 0.95rem;
+    padding: 0.6rem 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .login-header h2 {
+    font-size: 1.2rem;
+  }
+
+  .acciones button {
+    font-size: 0.85rem;
+    padding: 0.35rem 0.7rem;
+  }
+
+  .tabla-ofertas th,
+  .tabla-ofertas td {
+    font-size: 0.95rem;
+  }
+}
