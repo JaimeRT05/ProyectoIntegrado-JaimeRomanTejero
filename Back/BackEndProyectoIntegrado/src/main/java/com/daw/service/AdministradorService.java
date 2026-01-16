@@ -3,12 +3,16 @@ package com.daw.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.daw.datamodel.dto.AdminDTO;
+import com.daw.datamodel.entities.Administrador;
 import com.daw.datamodel.entities.Ciudadano;
 import com.daw.datamodel.entities.Empresa;
 import com.daw.datamodel.entities.Oferta;
 import com.daw.datamodel.entities.Usuario;
+import com.daw.datamodel.repository.AdministradorRepository;
 import com.daw.datamodel.repository.CiudadanoRepository;
 import com.daw.datamodel.repository.EmpresaRepository;
 import com.daw.datamodel.repository.OfertaRepository;
@@ -35,6 +39,31 @@ public class AdministradorService {
     
     @Autowired
     private PostulacionRepository postulacionRepository;
+
+    @Autowired 
+    private AdministradorRepository administradorRepository;
+
+     @Autowired
+    private PasswordEncoder passwordEncoder;
+    
+    public Administrador crearAdministrador(AdminDTO dto) {
+
+        Usuario usuario = new Usuario();
+        usuario.setNombreUsuario(dto.getNombreUsuario());
+        usuario.setContrasenaUsuario(passwordEncoder.encode(dto.getContrasenaUsuario()));
+        usuario.setPerfil("ADMIN");
+
+        usuarioRepository.save(usuario);
+
+        Administrador admin = new Administrador();
+        admin.setNombreAdmin(dto.getNombreAdmin());
+        admin.setContrasenaAdmin(dto.getContrasenaAdmin());
+        admin.setUsuario(usuario);
+
+        usuario.setAdministrador(admin);
+
+        return administradorRepository.save(admin);
+    }
 
     public List<Empresa> obtenerEmpresasPendientes() {
         return empresaRepository.findByValidadoFalse();

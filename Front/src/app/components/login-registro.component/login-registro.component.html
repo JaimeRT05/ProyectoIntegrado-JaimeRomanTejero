@@ -31,6 +31,7 @@
       <div class="tipo-registro">
         <button [class.selected]="tipoRegistro==='CIUDADANO'" (click)="seleccionarTipo('CIUDADANO')">Ciudadano</button>
         <button [class.selected]="tipoRegistro==='EMPRESA'" (click)="seleccionarTipo('EMPRESA')">Empresa</button>
+        <button [class.selected]="tipoRegistro==='ADMIN'" (click)="seleccionarTipo('ADMIN')">Administrador</button>
       </div>
 
       <!-- Formulario Ciudadano -->
@@ -78,6 +79,17 @@
         <input type="text" placeholder="Dirección Web" [(ngModel)]="empresa.direccionWeb" name="webEmpresa">
 
         <button type="submit">Registrar Empresa</button>
+      </form>
+
+      <form *ngIf="tipoRegistro==='ADMIN'" (ngSubmit)="submitAdmin()">
+        <input type="text" placeholder="Nombre del Administrador" [(ngModel)]="admin.nombreAdmin" name="nombreAdmin" required>
+        <input type="password" placeholder="Contraseña" [(ngModel)]="admin.contrasenaAdmin" name="contrasenaAdmin" required>
+        <input type="password" placeholder="Repetir Contraseña" [(ngModel)]="admin.repetirContrasenaAdmin" name="repContrasenaAdmin" required>
+
+        <input type="text" placeholder="Nombre de Usuario" [(ngModel)]="admin.nombreUsuario" name="usuarioNombreAdmin" required>
+        <input type="password" placeholder="Contraseña Usuario" [(ngModel)]="admin.contrasenaUsuario" name="usuarioContrasenaAdmin" required>
+
+        <button type="submit">Registrar Administrador</button>
       </form>
 
     </div>

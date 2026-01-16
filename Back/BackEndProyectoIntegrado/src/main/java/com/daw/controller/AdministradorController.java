@@ -8,14 +8,19 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.daw.datamodel.dto.AdminDTO;
+import com.daw.datamodel.entities.Administrador;
 import com.daw.datamodel.entities.Ciudadano;
 import com.daw.datamodel.entities.Empresa;
 import com.daw.datamodel.entities.Oferta;
 import com.daw.service.AdministradorService;
+
+import org.springframework.web.bind.annotation.RequestBody;
 
 @RestController
 @RequestMapping("/api/admin")
@@ -24,6 +29,26 @@ public class AdministradorController {
     @Autowired
     private AdministradorService administradorService;
    
+    @PostMapping("/crear")
+    public ResponseEntity<AdminDTO> crearAdministrador(@RequestBody AdminDTO dto) {
+        try {
+            Administrador admin = administradorService.crearAdministrador(dto);
+
+
+            AdminDTO response = new AdminDTO();
+            response.setNombreAdmin(admin.getNombreAdmin());
+            response.setContrasenaAdmin(admin.getContrasenaAdmin());
+            response.setNombreUsuario(admin.getUsuario().getNombreUsuario());
+            response.setContrasenaUsuario(null); 
+            
+
+            return ResponseEntity.ok(response);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
+        }
+    }
+
     //@PreAuthorize("hasRole('ADMIN')") HAY QUE PONER ESTO PARA QUE SOLO EL ROL ADMIN PUEDA HACERLO
     @GetMapping("/listarEmpresas/pendientes")
     public ResponseEntity<List<Empresa>> listarEmpresasPendientes() {

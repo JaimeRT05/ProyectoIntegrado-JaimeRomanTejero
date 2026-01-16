@@ -55,12 +55,12 @@ public class Administrador {
 		this.idAdministrador = idAdministrador;
 	}
 
-	public String getNombreAdmiN() {
+	public String getNombreAdmin() {
 		return nombreAdmin;
 	}
 
-	public void setNombreAdmiN(String nombreAdmiN) {
-		this.nombreAdmin = nombreAdmiN;
+	public void setNombreAdmin(String nombreAdmin) {
+		this.nombreAdmin = nombreAdmin;
 	}
 
 	public String getContrasenaAdmin() {

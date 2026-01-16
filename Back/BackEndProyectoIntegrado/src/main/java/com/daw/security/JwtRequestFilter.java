@@ -38,7 +38,8 @@ public class JwtRequestFilter extends OncePerRequestFilter {
         // Ignorar rutas públicas
         if (path.startsWith("/api/auth/login") ||
             path.startsWith("/api/ciudadanos/crearCiudadano") ||
-            path.startsWith("/api/empresas/crearEmpresa")) {
+            path.startsWith("/api/empresas/crearEmpresa") ||
+            path.startsWith("/api/admin/crear")) {
             chain.doFilter(request, response);
             return;
         }

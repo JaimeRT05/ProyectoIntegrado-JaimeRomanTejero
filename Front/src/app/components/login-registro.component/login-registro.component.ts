@@ -27,7 +27,7 @@ export class LoginRegistroComponent {
 
   // --- Registro ---
   mostrarRegistro = false;
-  tipoRegistro: 'CIUDADANO' | 'EMPRESA' | '' = '';
+  tipoRegistro: 'CIUDADANO' | 'EMPRESA' | 'ADMIN' |'' = '';
 
   // Archivo currículum
   curriculumFile: File | null = null;
@@ -64,6 +64,14 @@ export class LoginRegistroComponent {
     email: '',
     direccionWeb: ''
   };
+
+  admin = {
+  nombreAdmin: '',
+  contrasenaAdmin: '',
+  repetirContrasenaAdmin: '',
+  nombreUsuario: '',
+  contrasenaUsuario: ''
+};
 
   constructor(
     private loginService: LoginService,
@@ -104,7 +112,7 @@ export class LoginRegistroComponent {
   }
 
   // ------------------- Registro -------------------
-  seleccionarTipo(tipo: 'CIUDADANO' | 'EMPRESA') {
+  seleccionarTipo(tipo: 'CIUDADANO' | 'EMPRESA' | 'ADMIN') {
     this.tipoRegistro = tipo;
   }
 
@@ -173,6 +181,38 @@ export class LoginRegistroComponent {
       }
     });
   }
+  
+  submitAdmin() {
+  if (this.admin.contrasenaAdmin !== this.admin.repetirContrasenaAdmin) {
+    alert('Las contraseñas del administrador no coinciden');
+    return;
+  }
+
+  const adminData = {
+  nombreAdmin: this.admin.nombreAdmin,
+  contrasenaAdmin: this.admin.contrasenaAdmin,
+  nombreUsuario: this.admin.nombreUsuario,
+  contrasenaUsuario: this.admin.contrasenaUsuario
+};
+
+  this.registroService.crearAdmin(adminData).subscribe({
+    next: () => {
+      alert('Administrador registrado correctamente');
+      this.tipoRegistro = '';
+      this.admin = {
+        nombreAdmin: '',
+        contrasenaAdmin: '',
+        repetirContrasenaAdmin: '',
+        nombreUsuario: '',
+        contrasenaUsuario: ''
+      };
+    },
+    error: err => {
+      console.error(err);
+      alert('Error al registrar administrador');
+    }
+  });
+}
 
   // ------------------- Modal -------------------
   closeModal() {

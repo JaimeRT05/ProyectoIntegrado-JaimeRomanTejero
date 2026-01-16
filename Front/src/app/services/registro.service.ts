@@ -16,4 +16,8 @@ export class RegistroService {
   crearEmpresa(data: FormData) {
     return this.http.post(`${this.baseUrl}/empresas/crearEmpresa`, data);
   }
+
+  crearAdmin(adminData: any) {
+    return this.http.post(`${this.baseUrl}/admin/crear`, adminData, { headers: { 'Content-Type': 'application/json' }});
+  }
 }
