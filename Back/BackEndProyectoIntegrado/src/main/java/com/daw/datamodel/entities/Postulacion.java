@@ -15,6 +15,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import jakarta.persistence.CascadeType;
 
 @Entity
 @Table(name="Postulacion")
@@ -43,9 +44,10 @@ public class Postulacion {
     @JoinColumn(name = "IdOferta")
     private Oferta oferta;
     
-    @ManyToOne
-    @JoinColumn(name = "id_curriculum", nullable = false)
-    private Curriculum curriculum;
+   	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "id_curriculum", nullable = false)
+	private Curriculum curriculum;
+
 
     // Getters y Setters
     

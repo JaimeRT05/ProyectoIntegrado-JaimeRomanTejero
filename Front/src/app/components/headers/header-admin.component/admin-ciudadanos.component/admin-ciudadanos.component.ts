@@ -42,18 +42,21 @@ export class AdminCiudadanosComponent implements OnInit {
   }
 
   eliminarCiudadano(ciudadano: Ciudadano): void {
-    if (!confirm(`¿Eliminar ciudadano ${ciudadano.nombre}?`)) return;
-
-    this.adminService.eliminarCiudadano(ciudadano.idCiudadano).subscribe({
-      next: () => {
-        this.mensaje = `Ciudadano ${ciudadano.nombre} eliminado correctamente`;
-        this.cargarCiudadanos();
-      },
-      error: (err) => {
-        console.error(err);
-        this.mensaje = `Error al eliminar ciudadano ${ciudadano.nombre}`;
-      }
-    });
+  if (!confirm(`¿Eliminar ciudadano ${ciudadano.nombre}? Se eliminará su cuenta, todos sus datos relacionados y todas las postulaciones activas.`)) {
+    return;
   }
+
+  this.adminService.eliminarCiudadano(ciudadano.idCiudadano).subscribe({
+    next: () => {
+      this.mensaje = `Ciudadano ${ciudadano.nombre} eliminado correctamente`;
+      this.cargarCiudadanos();
+    },
+    error: (err) => {
+      console.error(err);
+      this.mensaje = `Error al eliminar ciudadano ${ciudadano.nombre}`;
+    }
+  });
+}
+
 
 }

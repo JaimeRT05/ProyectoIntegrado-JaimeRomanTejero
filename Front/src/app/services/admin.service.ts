@@ -26,9 +26,15 @@ export class AdminService {
     return this.http.put<void>(`${this.baseUrl}/ValidarCiudadano/${idCiudadano}`, {}, { headers: this.getHeaders() });
   }
 
-  eliminarCiudadano(idCiudadano: number): Observable<{mensaje: string}> {
-    return this.http.delete<{mensaje: string}>(`${this.baseUrl}/eliminarCiudadanos/${idCiudadano}`, { headers: this.getHeaders() });
-  }
+  eliminarCiudadano(idCiudadano: number): Observable<string> {
+  return this.http.delete(
+    `${this.baseUrl}/eliminarCiudadanos/${idCiudadano}`,
+    {
+      headers: this.getHeaders(),
+      responseType: 'text' 
+    }
+  );
+}
 
   listarEmpresas(): Observable<any[]> {
     return this.http.get<any[]>(`${this.baseUrl}/listarEmpresas`, { headers: this.getHeaders() });

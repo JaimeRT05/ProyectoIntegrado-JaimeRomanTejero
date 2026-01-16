@@ -10,14 +10,17 @@ import com.daw.datamodel.dto.AdminDTO;
 import com.daw.datamodel.entities.Administrador;
 import com.daw.datamodel.entities.Ciudadano;
 import com.daw.datamodel.entities.Empresa;
+import com.daw.datamodel.entities.Curriculum;
 import com.daw.datamodel.entities.Oferta;
 import com.daw.datamodel.entities.Usuario;
+import com.daw.datamodel.entities.Postulacion;
 import com.daw.datamodel.repository.AdministradorRepository;
 import com.daw.datamodel.repository.CiudadanoRepository;
 import com.daw.datamodel.repository.EmpresaRepository;
 import com.daw.datamodel.repository.OfertaRepository;
 import com.daw.datamodel.repository.PostulacionRepository;
 import com.daw.datamodel.repository.UsuarioRepository;
+import com.daw.datamodel.repository.CurriculumRepository;
 
 import jakarta.transaction.Transactional;
 
@@ -42,6 +45,9 @@ public class AdministradorService {
 
     @Autowired 
     private AdministradorRepository administradorRepository;
+
+    @Autowired
+    private CurriculumRepository curriculumRepository;
 
      @Autowired
     private PasswordEncoder passwordEncoder;
@@ -140,16 +146,31 @@ public class AdministradorService {
         }
     }
     
-    public void eliminarCiudadano(Long idCiudadano) {
-        Ciudadano ciudadano = ciudadanoRepository.findById(idCiudadano)
-                .orElseThrow(() -> new RuntimeException("Ciudadano no encontrado"));
+    @Transactional
+public void eliminarCiudadano(Long idCiudadano) {
 
-        if (ciudadano.getUsuario() != null) {
-            usuarioRepository.delete(ciudadano.getUsuario());
+    Ciudadano ciudadano = ciudadanoRepository.findById(idCiudadano)
+            .orElseThrow(() -> new RuntimeException("Ciudadano no encontrado"));
+
+    if (ciudadano.getPostulaciones() != null) {
+        for (Postulacion p : ciudadano.getPostulaciones()) {
+            postulacionRepository.delete(p); 
         }
-
-        ciudadanoRepository.delete(ciudadano);
     }
+
+    if (ciudadano.getCurriculums() != null) {
+        for (Curriculum c : ciudadano.getCurriculums()) {
+            curriculumRepository.delete(c); 
+        }
+    }
+
+    Usuario usuario = ciudadano.getUsuario();
+    if (usuario != null) {
+        usuarioRepository.delete(usuario);
+    }
+
+    ciudadanoRepository.delete(ciudadano);
+}
     
     public void eliminarOferta(Long idOferta) {
         Oferta oferta = ofertaRepository.findById(idOferta)

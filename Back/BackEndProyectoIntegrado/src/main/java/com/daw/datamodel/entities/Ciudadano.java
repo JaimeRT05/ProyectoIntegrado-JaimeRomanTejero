@@ -62,7 +62,7 @@ public class Ciudadano {
 	
 	//Relaciones
 	
-	@OneToMany(mappedBy = "ciudadano", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "ciudadano", cascade = CascadeType.ALL, orphanRemoval = true)
 	@JsonIgnore
 	private List<Postulacion> postulaciones;
 	
